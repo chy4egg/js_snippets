@@ -1,5 +1,5 @@
 
-// description:
+// description: 
 class EventObserver {
   constructor () {
     this.observers = []
@@ -11,31 +11,25 @@ class EventObserver {
     this.observers = this.observers.filter(subscriber => subscriber !== fn)
   }
   broadcast (data) {
-    this.observers.forEach(subscriber => subscriber(data))
+    this.observers.forEach((item) => {
+      return item(data)
+    })
   }
 }
 
 // usage:
 const Observer = new EventObserver()
 
-// a changing something
-let tick = 0
-
-// subscribe to tick
-Observer.subscribe((tick) => {
-  console.log('subscribed to tick', tick)
+// add subscribtion to tick
+Observer.subscribe(tick => {
+  console.log(tick);
 })
+
+// emit an action
+let tick = 0
 
 setInterval(()=>{
   tick++
-  Observer.broadcast( {tick: 'tick is changed!'} );
-  // unsubscribe from tick
-  if (tick >= 3) {
-    //todo: unsubscribtion doesn't work!
-    Observer.unsubscribe((tick) => {
-      console.log('unsubscribed from tick', tick)
-    })
-  }
+  // trigger our tick subscribtion
+  Observer.broadcast( tick );
 },1000)
-
-
