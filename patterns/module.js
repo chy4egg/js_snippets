@@ -1,18 +1,32 @@
+// a module
+var Module = (function() {
+  // a private prop
+  var privateProp = 0;
 
-var Module = (function(){
-
-  var privateProp = 10;
-
-  function privatePropLog() {
-    console.log(privateProp);
+  // a private prop changer
+  function changePrivateProp(newValue) {
+    privateProp = newValue;
   }
 
+  // a private prop returner
+  function privatePropLog() {
+    return privateProp;
+  }
+
+  // only this will be avaible for the module users
   return {
-    privatePropLog: privatePropLog
+    changeProp: function(newValue) {
+      changePrivateProp(newValue);
+    },
+
+    logProp: function() {
+      return privatePropLog();
+    }
   }
 
 }());
 
 console.clear();
-console.log( Module.privateProp ); // private
-console.log( Module.privatePropLog() ); // ok
+console.log( Module.logProp() ); // 0
+console.log( Module.changeProp(10) ); // ok
+console.log( Module.logProp() ); // 10
