@@ -1,6 +1,6 @@
 // Inheritance on prototypes in js (learn this exapmle and make comments:)
 
-function Animal(type){
+function Animal(type) {
   var animal = Object.create(Animal.prototype);
   animal.type = type;
   return animal;
