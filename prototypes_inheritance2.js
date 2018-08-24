@@ -1,4 +1,8 @@
-console.clear();
+/*
+  Конструкция наследования на прототипах. По сути, то же самое делают классы в ES6
+*/
+
+console.clear(); // на всякий пожарный
 
 var Duck = function(name) {
   this.name = name;
