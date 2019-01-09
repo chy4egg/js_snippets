@@ -1,5 +1,5 @@
 
-// description: 
+// description:
 class EventObserver {
   constructor () {
     this.observers = []
@@ -21,9 +21,7 @@ class EventObserver {
 const Observer = new EventObserver()
 
 // add subscribtion to tick
-Observer.subscribe(tick => {
-  console.log(tick);
-})
+Observer.subscribe( tick => console.log(tick) )
 
 // emit an action
 let tick = 0
