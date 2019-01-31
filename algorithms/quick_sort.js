@@ -1,32 +1,52 @@
-
 /*
-* Быстрая сортировка (Quick Sort)
-*/
+ * Быстрая сортировка (Quick Sort)
+ */
 
-const arr = [1,3,9,10,22,13,65]
+const arr = [1, 3, 9, 10, 22, 13, 65];
 
-//функция-разделитель
+// функция-разделитель
 const swap = (items, firstIndex, secondIndex) => {
-    [items[firstIndex], items[secondIndex] ] = [items[secondIndex], items[firstIndex] ]
+  [items[firstIndex], items[secondIndex]] = [items[secondIndex], items[firstIndex]];
+};
+
+console.log(swap(arr, arr[0], arr.length));
+
+const partition = (items, left, right) => {
+  const pivot = items[Math.floor((right + left) / 2)];
+  let i = left;
+  let j = right;
+
+  while (i <= j) {
+    while (items[i] < pivot) {
+      i++;
+    }
+    while (items[j] > pivot) {
+      j--;
+    }
+    if (i <= j) {
+      swap(items, i, j);
+      i++;
+      j--;
+    }
+  }
+  return i;
 }
 
-console.log( swap(arr, arr[0], arr.length) )
-
-//TODO: доделать, задокументировать
 function quickSort(items, left, right) {
-    var index;
-    if (items.length > 1) {
-        left = typeof left != "number" ? 0 : left;
-        right = typeof right != "number" ? items.length - 1 : right;
-        index = partition(items, left, right);
-        if (left < index - 1) {
-            quickSort(items, left, index - 1);
-        }
-        if (index < right) {
-            quickSort(items, index, right);
-        }
+  let index;
+  if (items.length > 1) {
+    left = typeof left !== 'number' ? 0 : left;
+    right = typeof right !== 'number' ? items.length - 1 : right;
+    index = partition(items, left, right);
+    if (left < index - 1) {
+      quickSort(items, left, index - 1);
     }
-    return items;
+    if (index < right) {
+      quickSort(items, index, right);
+    }
+  }
+  return items;
 }
 // first call
-var result = quickSort(items);
+const result = quickSort(arr);
+console.log(result)
