@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "prefer-template": "off",
     "no-console": "off",
     "no-multi-assign": "off",
     "no-param-reassign": "off",

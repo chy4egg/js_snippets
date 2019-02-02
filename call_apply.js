@@ -1,25 +1,29 @@
-// func.call(context, arguments)
+/*
+ * Function.apply(context, arguments)
+ * принимает 2 аргумента.
+ * @param 1 - контект (this будет ссылаться на него)
+ * @param 2 - массив аргументов, который будет преобразован в arguments
+ */
 
-// uses call to get Array.join() method with non-array entity (arguments)
-function printArgs() {
-  var args = [].join.call(arguments, ':');
-  console.log( args );
-}
-printArgs(1,2,3);
+// определение функции
+const sayHi = who => `Hello ${who}`
 
-//the same with Array.slice()
-function printArgs2() {
-  var args = [].slice.call(arguments);
-  console.log( args ); // ['Hello', 'my', 'world']
-  console.log( args.join(' ') ); // 'Hello my world'
-}
-printArgs2('Hello', 'my', 'world');
+console.log(sayHi()) // "Hello undefined"
+sayHi('world') // "Hello world"
 
-// Apply - the same as call, but works with an array of parameters:
-function testApply(arr) {
-  // we can find a maximum value of the array using Math.max method:
-  var max = Math.max.apply(null, arr);
-  // we use null as context here because we don't need the context (this) in our case. Math.max doesn't use 'this'.
-  console.log( max ); // 7
-}
-testApply([1,6,7,2,1,5,3,6,7,5]);
+console.log(sayHi.apply(null, ['hello', 'hello2', 'hello3'])) // "Hello hello"
+// так как функция sayHi принимает только 1 агрумент, остальные будут отброшены
+
+/*
+ * Function.call(context, argument)
+ * принимает 2 аргумента.
+ * @param 1 - контект (this будет ссылаться на него)
+ * @param 2 - аргумент, который будет передан функции
+ */
+
+// в ES5 можно было с помощью [].join.call(arguments, 'params') вызывать у arguments
+// методы массива, например join() или  slice()
+// в ES6 это делается с помощью оператора ...rest
+const printArgs = (...args) => args.join(':')
+
+console.log(printArgs(1, 2, 3)) // 1:2:3
