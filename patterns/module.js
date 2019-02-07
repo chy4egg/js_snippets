@@ -1,7 +1,7 @@
 // a module
-var Module = (function() {
+const Module = (function () {
   // a private prop
-  var privateProp = 0;
+  let privateProp = 0;
 
   // a private prop changer
   function changePrivateProp(newValue) {
@@ -15,18 +15,17 @@ var Module = (function() {
 
   // only this will be avaible for the module users
   return {
-    changeProp: function(newValue) {
+    changeProp(newValue) {
       changePrivateProp(newValue);
     },
 
-    logProp: function() {
+    logProp() {
       return privatePropLog();
     }
-  }
-
+  };
 }());
 
 console.clear();
-console.log( Module.logProp() ); // 0
-console.log( Module.changeProp(10) ); // ok
-console.log( Module.logProp() ); // 10
+console.log(Module.logProp()); // 0
+console.log(Module.changeProp(10)); // ok
+console.log(Module.logProp()); // 10

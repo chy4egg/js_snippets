@@ -1,33 +1,33 @@
-
 // description:
 class EventObserver {
-  constructor () {
-    this.observers = []
+  constructor() {
+    this.observers = [];
   }
-  subscribe (fn) {
-    this.observers.push(fn)
+
+  subscribe(fn) {
+    this.observers.push(fn);
   }
-  unsubscribe (fn) {
-    this.observers = this.observers.filter(subscriber => subscriber !== fn)
+
+  unsubscribe(fn) {
+    this.observers = this.observers.filter(subscriber => subscriber !== fn);
   }
-  broadcast (data) {
-    this.observers.forEach((item) => {
-      return item(data)
-    })
+
+  broadcast(data) {
+    this.observers.forEach(item => item(data));
   }
 }
 
 // usage:
-const Observer = new EventObserver()
+const Observer = new EventObserver();
 
 // add subscribtion to tick
-Observer.subscribe( tick => console.log(tick) )
+Observer.subscribe(tick => console.log(tick));
 
 // emit an action
-let tick = 0
+let tick = 0;
 
-setInterval(()=>{
-  tick++
+setInterval(() => {
+  tick++;
   // trigger our tick subscribtion
-  Observer.broadcast( tick );
-},1000)
+  Observer.broadcast(tick);
+}, 1000);

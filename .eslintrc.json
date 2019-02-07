@@ -12,6 +12,8 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-prototype-builtins": "off",
+    "func-names": "off",
     "prefer-template": "off",
     "no-console": "off",
     "no-multi-assign": "off",
