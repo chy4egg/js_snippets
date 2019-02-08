@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "max-len": "off",
     "no-prototype-builtins": "off",
     "func-names": "off",
     "prefer-template": "off",

@@ -1,10 +1,11 @@
-// Array.reduce() retains an interim value (сохраняет промежуточное значение) as the first parameter.
+// Array.reduce() retains an interim value (сохраняет промежуточное значение) 
+// as the first parameter.
 // The second parameter is the current value
 // With the reduce method we can do something with the current and accumulate values
 
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 
-console.log( arr.reduce((acc, curr) => (acc + curr) )); // 15
+console.log(arr.reduce((acc, curr) => acc + curr)); // 15
 
 // 0) acc = 0, cur = 1
 // 1) acc = 1, cur = 2

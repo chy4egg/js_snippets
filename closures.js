@@ -5,18 +5,21 @@
 */
 
 function makeFunc() {
-  var name = "Mozilla"; // a local variable
+  const name = 'Mozilla'; // a local variable
 
-  function displayName() { // closure
+  function displayName() {
+    // closure
     console.log(name);
   }
 
   return displayName;
-};
+}
 
-var myFunc = makeFunc();
+const myFunc = makeFunc();
 myFunc(); // "Mozilla"
 
-/* 
-Что отличает этот код, и что представляет для нас интерес, так это то, что внутренняя функция displayName() была возвращена из внешней до того, как была выполнена.
+/*
+ Что отличает этот код, и что представляет для нас интерес,
+ так это то, что внутренняя функция displayName() была 
+ возвращена из внешней до того, как была выполнена.
 */
