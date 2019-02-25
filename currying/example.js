@@ -1,19 +1,19 @@
-//Currying is translating a function from callable as f(a,b) into f(a)(b)
+// Currying is translating a function from callable as f(a,b) into f(a)(b)
 
-//example
+// example
 function curry(func) {
-    return function(a) {
-        return function(b) {
-            return func(a,b);
-        }
+  return function (a) {
+    return function (b) {
+      return func(a, b);
     }
+  }
 }
 
-//usage
-function sum(a,b) {
-    return a + b;
+// usage
+function sum(a, b) {
+  return a + b;
 }
 
-var curriedSum = curry(sum);
+const curriedSum = curry(sum);
 
 console.log(curriedSum(1)(2)); // 3

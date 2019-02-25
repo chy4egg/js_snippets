@@ -1,4 +1,4 @@
-// Inheritance on prototypes in js (learn this exapmle and make comments:)
+// Inheritance on prototypes in js (learn this example and make comments:)
 
 function Animal(type) {
   const animal = Object.create(Animal.prototype);
