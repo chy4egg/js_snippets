@@ -1,4 +1,4 @@
-// Array.reduce() retains an interim value (сохраняет промежуточное значение) 
+// Array.reduce() retains an interim value (сохраняет промежуточное значение)
 // as the first parameter.
 // The second parameter is the current value
 // With the reduce method we can do something with the current and accumulate values

@@ -13,7 +13,7 @@ const Module = (function () {
     return privateProp;
   }
 
-  // only this will be avaible for the module users
+  // only this will be available for the module users
   return {
     changeProp(newValue) {
       changePrivateProp(newValue);

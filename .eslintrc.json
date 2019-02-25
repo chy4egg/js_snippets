@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-irregular-whitespace": "off",
     "max-len": "off",
     "no-prototype-builtins": "off",
     "func-names": "off",

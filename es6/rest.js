@@ -2,7 +2,10 @@
 
 function testRest(...numbers) {
   let total = 0;
-  numbers.forEach(num => (total += num));
+
+  numbers.forEach((num) => {
+    total += num
+  })
 
   return total;
 }
